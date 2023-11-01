@@ -1,0 +1,14 @@
+<h2>{{ Cart.length === 0 ? 'Cart Section is Empty, Please Add!!' : 'Welcome in Cart Section' }}</h2>
+
+<img *ngIf="Cart.length===0" style="width: 50%;display: block;; margin: auto;" src="https://uit.stanford.edu/sites/default/files/ReduceBox1.gif" alt="empty">
+
+<div *ngIf="Cart.length>0" id="parent">
+    <div id="child" *ngFor="let item of Cart">
+        <img src={{item.image}} alt={{item.name}} />
+        <h3>Name:- <span style="color:brown">{{item.name}}</span></h3>
+        <h4>Price:- <span style="color:brown">₹{{item.price}}</span></h4>
+        <h4>{{item.description}}</h4>
+        <h4>Type: <span style="color:brown">{{item.type}}</span></h4>
+        <button style="background: #000;" (click)="Remove(item.name)">Remove to Cart</button>
+    </div>
+</div>

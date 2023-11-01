@@ -1,0 +1,28 @@
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 65px;
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    background: #d8ffd1;
+    align-items: center;
+    z-index: 999;
+}
+nav>h1{
+    color: green;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px #000;
+    cursor: pointer;
+}
+nav>div{
+    display: flex;
+    justify-content: space-between;
+    gap: 45px;
+    font-weight: bold;
+}
+nav>div>p:hover{
+    cursor: pointer;
+    color: green;
+}

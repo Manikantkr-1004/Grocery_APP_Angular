@@ -1,0 +1,30 @@
+
+<div id="filter">
+    <select (input)="handleType($event)">
+        <option value="">Filter by Type</option>
+        <option value="Fruits">Fruits</option>
+        <option value="Vegetables">Vegetables</option>
+    </select>
+
+    <select (input)="handleSort($event)">
+        <option value="">Sort by Price</option>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+</div>
+
+<div id="parent">
+    <div id="child" *ngFor="let item of data">
+        <img src={{item.image}} alt={{item.name}} />
+        <h3>Name:- <span style="color:brown">{{item.name}}</span></h3>
+        <h4>Price:- <span style="color:brown">₹{{item.price}}</span></h4>
+        <h4 *ngIf="!item.showDetails">{{item.description.substring(0,20)}}...</h4>
+        <div *ngIf="item.showDetails">
+            <h4>{{item.description}}</h4>
+            <h4>Type: <span style="color:brown">{{item.type}}</span></h4>
+        </div>
+        <button style="background: #000;" (click)="Toggle(item.name)">{{item.showDetails? "Hide Details":"View Details"}}</button>
+        <button style="background: green;" (click)="AddCart(item.name)">{{checkAvaCart(item.name) ? 'Added in Cart' : 'Add to Cart'}}</button>
+        <button style="background: blue;" (click)="AddFavourite(item.name)">{{checkAvaFav(item.name)? 'Marked as Favourite' : 'Mark as Favourite'}}</button>
+    </div>
+</div>
